@@ -11,13 +11,23 @@
 </p>
 
 <p>
+  <strong>Pictures:</strong>
+  
+</p>
+
+<p>
   <strong>Price:</strong>
   <%= @post.price %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @post.user.email %>
+  <%= @post.user.name %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @post.user.phone %>
 </p>
 
 <%= display_show_post_links(@post) %>
