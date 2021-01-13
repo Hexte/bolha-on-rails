@@ -19,7 +19,7 @@
         <td><%= post.title %></td>
         <td><%= post.description %></td>
         <td><%= post.price %></td>
-        <td><%= post.user.email %></td>
+        <td><%= post.user.name || 'Anon'%></td>
         <td><%= link_to 'Show', post %></td>
         <%= display_post_links(post) %>
       </tr>

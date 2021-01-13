@@ -3,6 +3,8 @@ module ApplicationHelper
         capture do
             concat link_to "Domov", root_path
             concat " "
+            concat link_to "Uredi profil", edit_user_registration_path if user_signed_in?
+            concat " "
             concat link_to "Prijava", new_user_session_path if !user_signed_in?
             concat " "
             concat link_to "Registracija", new_user_registration_path if !user_signed_in?
