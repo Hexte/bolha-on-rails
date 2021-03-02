@@ -1,0 +1,37 @@
+
+
+<h1><%= @user.name %></h1>
+
+
+  Tel: <%= @user.phone %>
+  <br>
+  Lokacija: <%= @user.kraj %>
+
+  <table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Price</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.description %></td>
+        <td><%= post.price %></td>
+        <td><%= link_to 'Show', post %></td>
+        <%= display_post_links(post) %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+<br>
+

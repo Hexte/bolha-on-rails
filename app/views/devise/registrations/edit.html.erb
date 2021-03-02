@@ -17,6 +17,11 @@
     <%= f.label :phone %><br />
     <%= f.text_field :phone, autofocus: true, autocomplete: "phone", :required => true %>
   </div>
+  
+  <div class="field">
+    <%= f.label :kraj %><br />
+    <%= f.text_field :kraj, autofocus: true, autocomplete: "kraj", :required => true %>
+  </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>

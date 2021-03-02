@@ -13,14 +13,11 @@
 <p>
   <strong>Pictures:</strong>
   <br>
-    <%= image_tag(@post.preview(0))%>
+    <%= image_tag(@post.preview_main(0))%>
   <br>
 
   <% (0...@post.images.count).each do |image| %>
-
     <%= image_tag(@post.thumbnail(image))%>
- 
-
   <% end %>
 
 
@@ -33,7 +30,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @post.user.name %>
+  <a href="../user/<%= @post.user.id%>"><%= @post.user.name %></a>
 </p>
 
 <p>

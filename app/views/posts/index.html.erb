@@ -1,6 +1,14 @@
 
 
 <h1>Posts</h1>
+<%= search_form_for @q do |f| %>
+
+ 
+  <%= f.label :title_cont %>
+  <%= f.search_field :title_cont %>
+
+  <%= f.submit %>
+<% end %>
 
 <table>
   <thead>
@@ -16,12 +24,11 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= post.title %></td>
-        <td><%= post.description %></td>
-        <td><%= post.price %></td>
-        <td><%= post.user.name || 'Anon'%></td>
-        <td><%= link_to 'Show', post %></td>
-        <%= display_post_links(post) %>
+        <td><a href=<%= "/posts/"+post.id.to_s %>><%= image_tag url_for(post.images[0]), size: "159x103" %></a></td>
+        <td style="text-decoration:none; vertical-align:top"><%= link_to post.title, post %> <br>
+        <p><%= post.description %></p></td>
+        <td><%= post.price %>€</td>
+        <td><a href="../user/<%= post.user.id%>"><%= post.user.name %></a></td>
       </tr>
     <% end %>
   </tbody>

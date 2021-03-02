@@ -7,8 +7,11 @@ class Post < ApplicationRecord
     def thumbnail input
       return self.images[input].variant(resize: '80x80').processed
     end
-    def preview input
+    def preview_main input
       return self.images[input].variant(resize: '500x500').processed
+    end
+    def preview input
+      return self.images[input].variant(resize: '100x100').processed
     end
 
     private 
