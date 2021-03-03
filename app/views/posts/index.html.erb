@@ -20,7 +20,7 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><a href=<%= "/posts/"+post.id.to_s %>><%= image_tag url_for(post.images[0]), size: "159x103" %></a></td>
+        <td><div style="width: 180px; height:120px; line-height:120px; text-align:center;"><a href=<%= "/posts/"+post.id.to_s %> style="width:180px"><%= image_tag url_for(post.images[0]), :style => "max-height: 120px; max-width:180px; vertical-align:middle" %></a></div></td>
         <td style="text-decoration:none; vertical-align:top"><%= link_to post.title, post %> <br>
         <p><%= post.description %></p></td>
         <td><%= post.price %>€</td>

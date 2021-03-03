@@ -8,7 +8,7 @@ class Post < ApplicationRecord
       return self.images[input].variant(resize: '80x80').processed
     end
     def preview_main input
-      return self.images[input].variant(resize: '500x500').processed
+      return self.images[input].variant(resize: '600x400').processed
     end
     def preview input
       return self.images[input].variant(resize: '100x100').processed

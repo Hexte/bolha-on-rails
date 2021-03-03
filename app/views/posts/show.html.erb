@@ -10,18 +10,22 @@
   <%= @post.description %>
 </p>
 
-<p>
+
   <strong>Pictures:</strong>
   <br>
-    <%= image_tag(@post.preview_main(0))%>
+    <div style="height: 400px; width: 600px; line-height:100px; text-align:center;">
+      <%= image_tag(@post.images[0], :id => "img_main", :style => "max-height:400px; max-width: 600px;")%>
+    </div>
   <br>
 
-  <% (0...@post.images.count).each do |image| %>
-    <%= image_tag(@post.thumbnail(image))%>
-  <% end %>
+  <div style="height: 115px; width:600px; overflow-x:scroll; overflow-y:hidden; display:flex">
+    <% (0...@post.images.count).each do |image| %>
+        <div style="height: 100px; width: 100px; display:inline; line-height:100px; margin-left:3px; margin-right:3px; ">
+          <%= image_tag(@post.images[image], :id => "img_preview_#{image}", :onClick => "displayMain(#{image})", :style => "max-height:100px; max-width: 100px; vertical-align:middle; cursor:pointer;")%>
+        </div>
+      <% end %>
+  </div>
 
-
-</p>
 
 <p>
   <strong>Price:</strong>
@@ -39,3 +43,10 @@
 </p>
 
 <%= display_show_post_links(@post) %>
+
+<script>
+  function displayMain (nr){
+    var id = "img_preview_" + nr;
+    document.getElementById("img_main").src = document.getElementById(id).src;
+  }
+</script>
