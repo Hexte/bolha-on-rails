@@ -5,15 +5,85 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+    
+    h5, h4 {
+      font-weight: bold;
+    }
+    #nav-form > input:nth-of-type(2) {
+      cursor: pointer;
+      display: inline-block;
+      font-weight: 400;
+      color: #212529;
+      text-align: center;
+      vertical-align: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      background-color: transparent;
+      border: 1px solid transparent;
+          border-top-color: transparent;
+          border-right-color: transparent;
+          border-bottom-color: transparent;
+          border-left-color: transparent;
+      padding: 0.375rem 0.75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      border-radius: 0.25rem;
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      color: #28a745;
+      border-color: #28a745;
+  
+
+    }
+    #nav-form > input:nth-of-type(2):hover {
+      color: #fff;
+background-color: #28a745;
+border-color: #28a745;
+    }
+    .nav-link {
+      color: rgba(255, 255, 255, 0.5);
+    }
+    .nav-link:hover {
+      
+    }
+
+    
+    </style>
   </head>
 
   <body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+  <div class="container">
+      <%= link_to "BolhaOnRails", root_path, class: 'navbar-brand' %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <%= display_navbar_options %>
+        </ul>
+        <%= link_to 'New Post', new_post_path, class: 'nav-link' %>
+        <form class="form-inline mt-2 mt-md-0" id="nav-form">
+        <%= search_form_for(@q, url: root_path) do |f| %>
+          <%= f.search_field :title_cont, class: 'form-control mr-sm-2' %>
+          <%= f.submit %>
+        <% end %>
+          
+        </form>
+
+        
+      </div>
+      </div>
+    </nav>
     <div class="navbar">
       
-      <%= display_navbar_options %>
+      
       
 
 

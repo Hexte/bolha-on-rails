@@ -1,52 +1,71 @@
 
+<div class="container">
+<%= display_show_post_links(@post) %>
+  <div class="row">
+    <div class="col-sm">
+      <div class="col-sm" style="height: 50%;">
+        <p>
+        <h4><%= @post.title %></h4>
+        
+        </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
-
-
-  <strong>Pictures:</strong>
-  <br>
-    <div style="height: 400px; width: 600px; line-height:100px; text-align:center;">
-      <%= image_tag(@post.images[0], :id => "img_main", :style => "max-height:400px; max-width: 600px;")%>
-    </div>
-  <br>
-
-  <div style="height: 115px; width:600px; overflow-x:scroll; overflow-y:hidden; display:flex">
-    <% (0...@post.images.count).each do |image| %>
-        <div style="height: 100px; width: 100px; display:inline; line-height:100px; margin-left:3px; margin-right:3px; ">
-          <%= image_tag(@post.images[image], :id => "img_preview_#{image}", :onClick => "displayMain(#{image})", :style => "max-height:100px; max-width: 100px; vertical-align:middle; cursor:pointer;")%>
+        <p>
+        <h5>Description:</h5>
+        <%= @post.description %>
+        </p>
         </div>
-      <% end %>
-  </div>
-
-
-<p>
-  <strong>Price:</strong>
-  <%= @post.price %>
+        <div class="col-sm">
+        <p>
+  <h5>Price:</h5>
+  <%= @post.price %>€
 </p>
 
 <p>
-  <strong>User:</strong>
+  <h5>User:</h5>
   <a href="../user/<%= @post.user.id%>"><%= @post.user.name %></a>
 </p>
 
 <p>
-  <strong>Contact:</strong>
+  <h5>Contact:</h5>
   <%= @post.user.phone %>
 </p>
 
-<%= display_show_post_links(@post) %>
+        </div>
+    </div>
+    <div class="col-sm">
+      <h5>Pictures:</h5>
+      <br>
+        <div style="height: 400px; width: 600px; line-height:100px; text-align:center;">
+          <%= image_tag(@post.images[0], :id => "img_main", :style => "max-height:400px; max-width: 600px;")%>
+        </div>
+      <br>
+    
+      <div style="height: 115px; width:600px; overflow-x:scroll; overflow-y:hidden; display:flex">
+        <% (0...@post.images.count).each do |image| %>
+            <div style="height: 100px; width: 100px; display:inline; line-height:100px; margin-left:3px; margin-right:3px; " id="content" class="custom-scrollbar-js p-2">
+              <%= image_tag(@post.images[image], :id => "img_preview_#{image}", :onClick => "displayMain(#{image})", :style => "max-height:100px; max-width: 100px; vertical-align:middle; cursor:pointer;")%>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
 
+
+
+
+
+
+
+  
+</div>
 <script>
   function displayMain (nr){
     var id = "img_preview_" + nr;
     document.getElementById("img_main").src = document.getElementById(id).src;
   }
+</script>
+<script>
+$("#content").mCustomScrollbar({
+    theme: "inset-3-dark"
+  });
 </script>

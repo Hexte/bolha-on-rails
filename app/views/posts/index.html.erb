@@ -1,35 +1,60 @@
 
 
-<h1>Posts</h1>
-<%= search_form_for @q do |f| %>
-  <%= f.search_field :title_cont %>
-  <%= f.submit %>
-<% end %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Preview</th>
-      <th>Title/Description</th>
-      <th>Price</th>
-      <th>Author</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h1>Oglasi</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+    <div class="card-deck">
     <% @posts.each do |post| %>
-      <tr>
-        <td><div style="width: 180px; height:120px; line-height:120px; text-align:center;"><a href=<%= "/posts/"+post.id.to_s %> style="width:180px"><%= image_tag url_for(post.images[0]), :style => "max-height: 120px; max-width:180px; vertical-align:middle" %></a></div></td>
-        <td style="text-decoration:none; vertical-align:top"><%= link_to post.title, post %> <br>
-        <p><%= post.description %></p></td>
-        <td><%= post.price %>€</td>
-        <td><a href="../user/<%= post.user.id%>"><%= post.user.name %></a></td>
-      </tr>
+      <div class="card" style="width: 18rem; ">
+        <a href=<%= "/posts/"+post.id.to_s %> style="text-align: center">
+        <%= image_tag url_for(post.images[0]), class: "card-img-top", :style=> "max-height: 11.25rem; max-width:17.9rem; width: auto; height: auto; margin: auto" %>
+        </a>
+
+        <div class="card-body">
+        <h5 class="card-title"><%= link_to post.title, post %></h5>
+        <p class="card-text"><%= post.description %></p>
+        </div>
+
+
+
+       
+        
+        
+      
+      </div>
     <% end %>
-  </tbody>
-</table>
+ </div>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+  
 
 <br>
 
-<%= link_to 'New Post', new_post_path %>
+

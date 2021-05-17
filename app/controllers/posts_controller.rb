@@ -8,14 +8,22 @@ class PostsController < ApplicationController
   def index
     @q = Post.ransack(params[:q])
     @posts = @q.result()
+
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @q = Post.ransack(params[:q])
+    @posts = @q.result()
     
   end
 
+  def search
+    index
+    render :index
+  end
+  
   # GET /posts/new
   def new
     @post = Post.new
