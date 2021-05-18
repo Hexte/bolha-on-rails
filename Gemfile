@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
-gem 'devise', '3.0.3' # Avtentikacija uporabnikov
+gem 'devise' # Avtentikacija uporabnikov
 
 gem "mini_magick"
 
