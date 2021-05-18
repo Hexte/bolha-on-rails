@@ -9,12 +9,14 @@
   <div class="row">
     <div class="col-sm">
     <div class="card-deck">
+    <% i = 1 %>
     <% @posts.each do |post| %>
-      <div class="card" style="width: 18rem; ">
-        <a href=<%= "/posts/"+post.id.to_s %> style="text-align: center">
-        <%= image_tag url_for(post.images[0]), class: "card-img-top", :style=> "max-height: 11.25rem; max-width:17.9rem; width: auto; height: auto; margin: auto" %>
+      <div class="card" style="max-width: 15rem; width: 18rem; margin:auto">
+        <a href=<%= "/posts/"+post.id.to_s %> style="text-align: center; height: 11.25rem;">
+        <%= image_tag url_for(post.images[0]), class: "card-img-top", :style=> "max-height: 11.25rem; max-width:14.9rem; width: auto; height: auto; margin: auto" %>
         </a>
-
+        
+        
         <div class="card-body">
         <h5 class="card-title"><%= link_to post.title, post %></h5>
         <p class="card-text"><%= post.description %></p>
@@ -25,8 +27,15 @@
        
         
         
-      
       </div>
+      <% if i == 4 %>
+      </div>
+      <br>
+      <div class="card-deck">
+      <% i = 0 %>
+        <% end %>
+      
+      <% i = i + 1 %>
     <% end %>
  </div>
 

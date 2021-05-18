@@ -10,28 +10,29 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="form-group">
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title, required: true %>
+    <%= form.text_field :title, required: true, :class=> "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description, required: true %>
+    <%= form.text_area :description, required: true, :class=> "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :price %>
-    <%= form.number_field :price, required: true %>
+    <%= form.number_field :price, required: true, :class=> "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :images %>
-    <%= form.file_field :images, required: true, multiple: true %>
+    <%= form.file_field :images, required: true, multiple: true, :class=> "custom-file-input, form-control-file, form-control ", :id=> "customFile" %>
   </div>
-
+<br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :class=> "btn btn-primary" %>
+  </div>
   </div>
 <% end %>

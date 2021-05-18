@@ -1,26 +1,27 @@
+<div class="container" style="max-width:35em">
 <h2>Sign up</h2>
-
+<br>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   
   <div class="field">
     <%= f.label :username %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", :required => true %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", :required => true, :class=> "form-control" %>
   </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", :required => true %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", :required => true, :class=> "form-control" %>
   </div>
 
   <div class="field">
     <%= f.label :phone %><br />
-    <%= f.text_field :phone, autofocus: true, autocomplete: "phone", :required => true %>
+    <%= f.text_field :phone, autofocus: true, autocomplete: "phone", :required => true, :class=> "form-control" %>
   </div>
 
   <div class="field">
     <%= f.label :kraj %><br />
-    <%= f.text_field :kraj, autofocus: true, autocomplete: "kraj", :required => true %>
+    <%= f.text_field :kraj, autofocus: true, autocomplete: "kraj", :required => true, :class=> "form-control" %>
   </div>
 
   <div class="field">
@@ -28,17 +29,22 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", :class=> "form-control" %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", :class=> "form-control" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+  <br>
+    <%= f.submit "Sign up", :class=> "btn btn-primary"%>
+    <button class="btn">
+    <%= render "devise/shared/links" %>
+    </button>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+
+</div>
